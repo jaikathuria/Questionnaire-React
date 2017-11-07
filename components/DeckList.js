@@ -1,52 +1,54 @@
-import React, { Component } from 'react'
-import { Text, View, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
-import { connect } from 'react-redux'
+import React, {Component} from 'react'
+import {Text, View, StyleSheet, FlatList, TouchableOpacity} from 'react-native'
+import {connect} from 'react-redux'
 
 class DeckList extends Component {
 
     keyExtractor = (item, index) => item.title;
 
-    renderCard = ({ item }) => (
+    renderCard = ({item}) => (
         <TouchableOpacity
-            onPress={()=>this.props.navigation.navigate(
+            onPress={() => this.props.navigation.navigate(
                 'DeckView',
-                { deckId: item.title }
+                {deckId: item.title}
             )}
             activeOpacity={0.75}>
             <View style={styles.card}>
                 <View style={styles.row}>
-                    <Text style={{fontSize: 25}}> { item.title } </Text>
-                    <Text style={{fontSize: 20}}> { item.questions.length === 1 ? `${item.questions.length} Card` : `${item.questions.length} Cards`} </Text>
+                    <Text style={{fontSize: 25}}> {item.title} </Text>
+                    <Text
+                        style={{fontSize: 20}}> {item.questions.length === 1 ? `${item.questions.length} Card` : `${item.questions.length} Cards`} </Text>
                 </View>
-             </View>
+            </View>
         </TouchableOpacity>
-      )
+    )
 
-      render () {
+    render() {
 
-        const decks = Object.keys(this.props.decks).reduce((acc,deck)=>{
+        const decks = Object.keys(this.props.decks).reduce((acc, deck) => {
             acc.push(this.props.decks[deck])
             return acc
-        },[])
+        }, [])
 
 
         return (
-          <View style={styles.container}>
-            <View style={{flex: 1}}>
-              <FlatList
-                data={decks}
-                renderItem={this.renderCard}
-                keyExtractor={this.keyExtractor}
-              />
+            <View style={styles.container}>
+                <View style={{flex: 1}}>
+                    <FlatList
+                        data={decks}
+                        renderItem={this.renderCard}
+                        keyExtractor={this.keyExtractor}
+                    />
+                </View>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('AddNew')}
+                                  style={[{flex: 0.2}, styles.header]} activeOpacity={0.7}>
+                    <View style={styles.addDeckBtn}>
+                        <Text style={{fontSize: 25, color: '#fff'}}> NEW DECK </Text>
+                    </View>
+                </TouchableOpacity>
             </View>
-            <TouchableOpacity onPress={()=>this.props.navigation.navigate('AddNew')} style={[{flex: 0.2},styles.header]} activeOpacity={0.7} >
-              <View style={styles.addDeckBtn}>
-                <Text style={{fontSize: 25, color: '#fff'}}> NEW DECK </Text>
-              </View>
-            </TouchableOpacity>
-          </View>
         )
-      }
+    }
 }
 
 const styles = StyleSheet.create({
@@ -108,7 +110,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#eee',
         elevation: 10,
     }
-
 
 
 })

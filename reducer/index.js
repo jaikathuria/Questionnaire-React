@@ -1,7 +1,7 @@
-import { combineReducers } from 'redux'
+import {combineReducers} from 'redux'
 
 const decks = (state = {}, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case 'FETCH_DECKS':
             return action.data
         case 'ADD_DECK':

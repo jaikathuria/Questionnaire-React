@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native'
+import {AsyncStorage} from 'react-native'
 
 const QUESTIONNAIRE_STORAGE_KEY = 'SKYER:Questionnaire'
 
@@ -36,20 +36,20 @@ const setInitData = () => {
     return decks
 }
 
-export const getDecks = () =>  AsyncStorage.getItem(QUESTIONNAIRE_STORAGE_KEY)
-                                            .then((result) => {
-                                                return result === null ?
-                                                    setInitData() :
-                                                    JSON.parse(result)
-                                            })
+export const getDecks = () => AsyncStorage.getItem(QUESTIONNAIRE_STORAGE_KEY)
+    .then((result) => {
+        return result === null ?
+            setInitData() :
+            JSON.parse(result)
+    })
 
-export const getDeck = ( id ) => AsyncStorage.getItem(QUESTIONNAIRE_STORAGE_KEY)
-                                            .then(result => {
-                                                const deck = result[id]
-                                                return deck
-                                            })
+export const getDeck = (id) => AsyncStorage.getItem(QUESTIONNAIRE_STORAGE_KEY)
+    .then(result => {
+        const deck = result[id]
+        return deck
+    })
 
-export const saveDeckTitle = ( title ) => {
+export const saveDeckTitle = (title) => {
     return AsyncStorage.getItem(QUESTIONNAIRE_STORAGE_KEY)
         .then((result) => {
             result = JSON.parse(result)
@@ -57,17 +57,17 @@ export const saveDeckTitle = ( title ) => {
                 title: title,
                 questions: []
             }
-            AsyncStorage.setItem(QUESTIONNAIRE_STORAGE_KEY,JSON.stringify(result))
+            AsyncStorage.setItem(QUESTIONNAIRE_STORAGE_KEY, JSON.stringify(result))
             return title
         })
 }
 
-export const addCardToDeck = ( title, card ) => {
+export const addCardToDeck = (title, card) => {
     return AsyncStorage.getItem(QUESTIONNAIRE_STORAGE_KEY)
         .then(result => {
             result = JSON.parse(result)
             result[title].questions.push(card)
-            AsyncStorage.setItem(QUESTIONNAIRE_STORAGE_KEY,JSON.stringify(result))
+            AsyncStorage.setItem(QUESTIONNAIRE_STORAGE_KEY, JSON.stringify(result))
             return title, card
         })
 }

@@ -1,8 +1,8 @@
 import React from 'react'
-import { StyleSheet, Text, View, StatusBar } from 'react-native'
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
-import { StackNavigator } from 'react-navigation';
+import {StyleSheet, Text, View, StatusBar} from 'react-native'
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
+import {StackNavigator} from 'react-navigation';
 /* Reducer */
 import reducer from './reducer'
 /* React Components */
@@ -12,11 +12,11 @@ import DeckView from './components/DeckView'
 import NewCard from './components/NewCard'
 import Card from './components/Card'
 /* Actions */
-import { fetchDecks } from './actions'
+import {fetchDecks} from './actions'
 /* API Methods */
-import { getDecks, clearData } from './utils/storageApi'
+import {getDecks, clearData} from './utils/storageApi'
 /* Constant from Expo */
-import { Constants } from 'expo'
+import {Constants} from 'expo'
 
 //clearData()
 
@@ -28,10 +28,10 @@ getDecks().then(decks => {
 })
 
 const CustomStatusBar = ({backgroundColor, ...props}) => (
-        <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
-            <StatusBar translucent backgroundColor={backgroundColor} {...props} />
-        </View>
-    )
+    <View style={{backgroundColor, height: Constants.statusBarHeight}}>
+        <StatusBar translucent backgroundColor={backgroundColor} {...props} />
+    </View>
+)
 
 const Stack = StackNavigator({
     Decks: {
@@ -58,19 +58,19 @@ const Stack = StackNavigator({
             title: 'New Card'
         }
     }
-},{})
+}, {})
 
 /* Rendering App */
 export default class App extends React.Component {
-  render() {
-    return (
-      <Provider store={STORE}>
-          <View style={{flex: 1}}>
-              <CustomStatusBar />
-              <Card />
-          </View>
-      </Provider>
-    )
-  }
+    render() {
+        return (
+            <Provider store={STORE}>
+                <View style={{flex: 1}}>
+                    <CustomStatusBar/>
+                    <Card/>
+                </View>
+            </Provider>
+        )
+    }
 }
 
