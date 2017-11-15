@@ -3,6 +3,8 @@ import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native'
 import {connect} from 'react-redux'
 /* Import Action */
 import {restart, endQuiz} from '../actions'
+/* Notification Method */
+import { setLocalNotification , } from "../utils/helper"
 
 class Final extends Component {
 

@@ -1,12 +1,11 @@
 import React, {Component} from 'react'
-import {View, StyleSheet, TouchableOpacity, Text, KeyboardAvoidingView} from 'react-native'
+import {View, StyleSheet, TouchableOpacity, Text, KeyboardAvoidingView, Animated} from 'react-native'
 import TextField from 'react-native-md-textinput'
 import {connect} from 'react-redux'
 /* Import Action */
 import {addDeck} from '../actions'
 /* Storage API */
 import {saveDeckTitle} from '../utils/storageApi'
-
 
 class NewDeck extends Component {
 

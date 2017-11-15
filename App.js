@@ -19,6 +19,8 @@ import {fetchDecks} from './actions'
 import {getDecks, clearData} from './utils/storageApi'
 /* Constant from Expo */
 import {Constants} from 'expo'
+/* Notification Method */
+import { setLocalNotification, clearLocalNotification } from "./utils/helper"
 
 //clearData()
 
@@ -110,6 +112,11 @@ Stack.router.getStateForAction = (action, state) => {
 
 /* Rendering App */
 export default class App extends React.Component {
+
+    componentDidMount() {
+        clearLocalNotification().then(setLocalNotification)
+    }
+
     render() {
         return (
             <Provider store={STORE}>
