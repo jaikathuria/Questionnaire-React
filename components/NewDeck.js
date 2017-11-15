@@ -19,7 +19,7 @@ class NewDeck extends Component {
                 key: 'NewDeckToDeckView',
                 type: 'NewDeckToDeckView',
                 routeName: 'DeckView',
-                params: { deckId: this.state.title },
+                params: {deckId: this.state.title},
             });
 
         })

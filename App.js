@@ -20,7 +20,7 @@ import {getDecks, clearData} from './utils/storageApi'
 /* Constant from Expo */
 import {Constants} from 'expo'
 /* Notification Method */
-import { setLocalNotification, clearLocalNotification } from "./utils/helper"
+import {setLocalNotification, clearLocalNotification} from "./utils/helper"
 
 //clearData()
 
@@ -80,7 +80,7 @@ const Stack = StackNavigator({
 /* Method to Action to replace current View, With another in stackNavigator */
 const prevGetStateForActionHomeStack = Stack.router.getStateForAction;
 Stack.router.getStateForAction = (action, state) => {
-     if (state && action.type === 'NewDeckToDeckView') {
+    if (state && action.type === 'NewDeckToDeckView') {
         const routes = state.routes.slice(0, state.routes.length - 1);
         routes.push(action);
         return {
@@ -88,7 +88,7 @@ Stack.router.getStateForAction = (action, state) => {
             routes,
             index: routes.length - 1,
         };
-     }
+    }
     if (state && action.type === 'FinalToCardView') {
         const routes = state.routes.slice(0, state.routes.length - 2);
         routes.push(action);

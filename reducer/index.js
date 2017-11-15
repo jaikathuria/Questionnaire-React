@@ -36,7 +36,7 @@ const quizInitState = {
     questions: [],
 }
 
-const quiz = (state = quizInitState,action) => {
+const quiz = (state = quizInitState, action) => {
     switch (action.type) {
         case 'START_QUIZ':
             return {

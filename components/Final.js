@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 /* Import Action */
 import {restart, endQuiz} from '../actions'
 /* Notification Method */
-import { setLocalNotification , } from "../utils/helper"
+import {setLocalNotification,} from "../utils/helper"
 
 class Final extends Component {
 
@@ -57,13 +57,13 @@ class Final extends Component {
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={[styles.btn]}
-                            onPress={()=>{
+                            onPress={() => {
                                 this.props.dispatch(restart())
                                 this.props.navigation.dispatch({
                                     key: 'FinalToDeckView',
                                     type: 'FinalToDeckView',
                                     routeName: 'DeckView',
-                                    params: { deckId: this.props.title },
+                                    params: {deckId: this.props.title},
                                 });
                             }}
                         >

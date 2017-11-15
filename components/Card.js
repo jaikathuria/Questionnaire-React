@@ -12,7 +12,7 @@ class Card extends Component {
 
 
     componentWillReceiveProps(newProps) {
-        console.log("New Props:",newProps)
+        console.log("New Props:", newProps)
         if (newProps.number !== this.props.number) {
             this.showAns = false
         }
@@ -153,7 +153,7 @@ class Card extends Component {
                                     Show Answer
                                 </Text>
 
-                            </TouchableOpacity> }
+                            </TouchableOpacity>}
                         </View>
                         <View style={{
                             flex: 1,

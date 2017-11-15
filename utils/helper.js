@@ -1,13 +1,14 @@
 import {AsyncStorage} from 'react-native'
-import { Notifications, Permissions } from 'expo'
+import {Notifications, Permissions} from 'expo'
+
 const NOTIFICATION_KEY = 'QUESTIONNAIRE:notification'
 
-export function clearLocalNotification () {
+export function clearLocalNotification() {
     return AsyncStorage.removeItem(NOTIFICATION_KEY)
         .then(Notifications.cancelAllScheduledNotificationsAsync)
 }
 
-function createNotification () {
+function createNotification() {
     return {
         title: `Today's Questionnaire still Left`,
         body: "👋 don't forget to have your Questionnaire workout for today!",
@@ -23,13 +24,13 @@ function createNotification () {
     }
 }
 
-export function setLocalNotification () {
+export function setLocalNotification() {
     AsyncStorage.getItem(NOTIFICATION_KEY)
         .then(JSON.parse)
         .then((data) => {
             if (data === null) {
                 Permissions.askAsync(Permissions.NOTIFICATIONS)
-                    .then(({ status }) => {
+                    .then(({status}) => {
                         if (status === 'granted') {
                             Notifications.cancelAllScheduledNotificationsAsync()
 
