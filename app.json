@@ -1,5 +1,20 @@
 {
   "expo": {
-    "sdkVersion": "21.0.0"
+    "sdkVersion": "21.0.0",
+    "orientation": "portrait",
+    "name": "Questionnaire",
+    "description": "Best Quiz Workout App",
+    "slug": "questionnaire",
+    "version": "1.0",
+    "icon": "https://raw.githubusercontent.com/jaikathuria/Questionnaire-React/master/assets/logo.png",
+    "notification": {
+      "icon": "https://raw.githubusercontent.com/jaikathuria/Questionnaire-React/master/assets/logo_small.png"
+    },
+    "ios": {
+      "bundleIdentifier": "org.questionnaire.exp"
+    },
+    "android": {
+      "package": "org.questionnaire.exp"
+    }
   }
 }
