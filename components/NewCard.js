@@ -67,11 +67,11 @@ class NewDeck extends Component {
                         justifyContent: 'center',
                         alignItems: 'center'
                     }, {position: 'absolute', top: 0, bottom: 0, left: 0, right: 0}, {backgroundColor: 'transparent'}]}>
-                        <Text style={{fontSize: 25, fontWeight: "100"}}> Answer: </Text>
+                        <Text style={{fontSize: 25, fontWeight: "100"}}> Answer</Text>
                         <Text style={{
                             fontSize: 25,
                             fontWeight: "100"
-                        }}>  {this.state.answer === null ? 'UNDEFINED' : this.state.answer ? 'TRUE' : 'FALSE'} </Text>
+                        }}>  {this.state.answer === null ? '' : this.state.answer ? ': TRUE' : ': FALSE'} </Text>
                     </View>
 
                 </View>

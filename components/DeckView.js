@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native'
 import { connect } from 'react-redux'
-/* Constant from Expo */
+/* Import Action */
+import { startQuiz } from '../actions'
+
 
 
 class DeckView extends Component {
+    startQuiz = () => {
+            this.props.dispatch(startQuiz(this.props.deck))
+            this.props.navigation.navigate('Card')
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -21,7 +28,7 @@ class DeckView extends Component {
                         <Text style={{fontSize: 25,fontWeight: "100"}}>{ this.props.deck.questions.length === 1 ?  `Card` : `Cards`}</Text>
                     </View>
                 </View>
-                <TouchableOpacity style={[styles.center,{backgroundColor:'#3498db',alignItems: 'center'},styles.btn]} activeOpacity={0.7}>
+                <TouchableOpacity style={[styles.center,{backgroundColor:'#3498db',alignItems: 'center'},styles.btn]} activeOpacity={0.7} onPress={()=>this.startQuiz()}>
                     <Text style={{fontSize:22, color: '#fff',fontWeight: "900"}}> START QUESTIONNAIRE </Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={[styles.center,{backgroundColor:'#9b59b6',alignItems: 'center'},styles.btn]} activeOpacity={0.7} onPress={()=>this.props.navigation.navigate('NewCard',{title: this.props.deck.title})}>

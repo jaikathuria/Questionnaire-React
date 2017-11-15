@@ -16,7 +16,13 @@ class NewDeck extends Component {
 
     handleSubmit = () => {
         (this.state.title !== "") && saveDeckTitle(this.state.title).then(title => this.props.dispatch(addDeck(title))).then(() => {
-            this.props.navigation.goBack()
+            this.props.navigation.dispatch({
+                key: 'NewDeckToDeckView',
+                type: 'NewDeckToDeckView',
+                routeName: 'DeckView',
+                params: { deckId: this.state.title },
+            });
+
         })
     }
 
