@@ -19,7 +19,9 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "exp": "^45.1.0",
     "expo": "^21.0.0",
+    "global": "^4.3.2",
     "react": "16.0.0-alpha.12",
     "react-native": "^0.48.4",
     "react-native-material-textinput": "^1.1.0",

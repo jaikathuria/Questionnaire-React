@@ -75,7 +75,7 @@ const Stack = StackNavigator({
             headerLeft: null,
         }
     },
-}, {})
+})
 
 /* Method to Action to replace current View, With another in stackNavigator */
 const prevGetStateForActionHomeStack = Stack.router.getStateForAction;
@@ -128,4 +128,3 @@ export default class App extends React.Component {
         )
     }
 }
-
