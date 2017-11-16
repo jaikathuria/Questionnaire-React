@@ -12,7 +12,6 @@ class Card extends Component {
 
 
     componentWillReceiveProps(newProps) {
-        console.log("New Props:", newProps)
         if (newProps.number !== this.props.number) {
             this.showAns = false
         }

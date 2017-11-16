@@ -4,9 +4,13 @@ import {connect} from 'react-redux'
 /* Import Action */
 import {restart, endQuiz} from '../actions'
 /* Notification Method */
-import {setLocalNotification,} from "../utils/helper"
+import {setLocalNotification, clearLocalNotification} from "../utils/helper"
 
 class Final extends Component {
+
+    componentDidMount(){
+        clearLocalNotification().then(setLocalNotification)
+    }
 
     render() {
         return (

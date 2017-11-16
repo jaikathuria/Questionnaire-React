@@ -21,7 +21,7 @@ class FadeInView extends Component {
     }
 
     render() {
-        let {fadeAnim} = this.state;
+        const {fadeAnim} = this.state;
 
         return (
             <Animated.View                 // Special animatable View
@@ -39,8 +39,10 @@ class FadeInView extends Component {
 
 class DeckView extends Component {
     startQuiz = () => {
-        this.props.dispatch(startQuiz(this.props.deck))
-        this.props.navigation.navigate('Card')
+        if (this.props.deck.questions.length != 0){
+            this.props.dispatch(startQuiz(this.props.deck))
+            this.props.navigation.navigate('Card')
+        }
     }
 
     render() {

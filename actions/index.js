@@ -41,12 +41,10 @@ const SKIPPED = 'SKIPPED'
 
 export const answer = (guess, ans) => {
     if (guess === ans) {
-        console.log("Answe: Correct")
         return {
             type: CORRECT
         }
     }
-    console.log("Answe: InCorrect")
     return {type: INCORRECT}
 }
 
